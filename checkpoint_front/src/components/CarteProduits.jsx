@@ -1,9 +1,11 @@
 import React from "react";
 
-const CarteProduit = () => {
+
+const CarteProduit = ({ produit }) => {
   return(
     <div>
-      <h1>CarteProduit</h1>
+      <img src= {produit.image} alt={produit.name} />
+      <h2>{produit.name}</h2> <p>{produit.prix} €</p>
     </div>
   )
 }

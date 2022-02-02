@@ -24,7 +24,7 @@ console.log(produits);
   return(
     <div>
       <h1>Home</h1>
-      {produits.length > 0 && produits.map((produit) => <CarteProduit produit={produit} />)}
+      {produits.length > 0 && produits.map((produit) => <CarteProduit produit={produit} key={produit.id} />)}
     </div>
   )
 };
