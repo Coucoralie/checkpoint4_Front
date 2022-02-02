@@ -1,0 +1,37 @@
+.card-container .card {
+  border: solid 1px #f2f2f2;
+  margin: 5px;
+  box-shadow: 10px 10px 10px 10px lightgray;
+}
+
+.card-container .card .card-body {
+  padding: 10px;
+}
+.card-body {
+  display: flex;
+  justify-content: space-between;
+}
+.card-produit {
+  font-size: 22px;
+}
+.card-container .card img.card-img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+.bloc-btn {
+  width: 100%;
+}
+.btn {
+  text-align: center;
+  font-size: 20px;
+  background-color: #8b56b2;
+  width: 100%;
+  padding: 5px;
+  cursor: pointer;
+  color: white;
+}
+.btn:hover {
+  background-color: white;
+  color: #8b56b2;
+}

@@ -1,0 +1,41 @@
+.nav {
+  background-color: rgb(167, 130, 167);
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+  font-size: 25px;
+}
+.logo {
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.panier {
+  width: 5%;
+}
+@media screen and (max-width: 800px) {
+  .menu {
+    flex-direction: column;
+    font-size: 5px;
+  }
+  .panier {
+    display: none;
+  }
+  .logo {
+    width: 20%;
+  }
+}
