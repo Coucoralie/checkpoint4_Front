@@ -1,11 +1,16 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 /** Import des composants */
 import Navbar from "./components/Navbar";
 const App = () => {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Hero />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 export default App;
