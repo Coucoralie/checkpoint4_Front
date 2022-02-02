@@ -1,11 +1,13 @@
 import React from 'react';
+/** Import de CSS */
+import './Hero.css';
 /** Import des images */
-import Hero from '../assets/images/hero.jpeg';
+import HeroImg from '../assets/images/hero.jpeg';
 
 const Hero = () => {
   return(
-    <div>
-      <img src ={Hero} alt="hero" />
+    <div className='hero'>
+      <img src ={HeroImg} alt="hero" className='imgHero'/>
     </div>
   )
 }

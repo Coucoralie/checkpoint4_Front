@@ -1,7 +1,10 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 /** Import des composants */
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+/** Import des pages */
+import Home from "./pages/Home";
 const App = () => {
   return (
     <BrowserRouter>
