@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+/** Import des images */
+import Logo from '../assets/images/logo.jpeg';
+import Panier from '../assets/images/panier.png';
 
 const Navbar = () => {
   return(
@@ -16,7 +19,7 @@ const Navbar = () => {
           Contact
         </Link>
       </nav>
-      <img src={panier} alt="panier" />
+      <img src={Panier} alt="panier" />
     </div>
   );
 };
