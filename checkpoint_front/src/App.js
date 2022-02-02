@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 /** Import de CSS */
-import './App.css';
+import "./App.css";
 /** Import des composants */
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";

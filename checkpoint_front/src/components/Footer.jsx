@@ -1,13 +1,13 @@
 import React from "react";
 /** Import de CSS */
-import './Footer.css';
+import "./Footer.css";
 /** Import des images */
 import facebook from "../assets/images/facebook.png";
 import instagram from "../assets/images/instagram.png";
 import twitter from "../assets/images/twitter.png";
 
 const Footer = () => {
-  return(
+  return (
     <div className="footer">
       <div className="footer-haut">
         <div className="footer-contact">
@@ -38,7 +38,7 @@ const Footer = () => {
         <p className="footer-copyright">Copyright</p>
       </div>
     </div>
-  )
+  );
 };
 
 export default Footer;

@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 /** Import de CSS */
-import './Navbar.css';
+import "./Navbar.css";
 /** Import des images */
-import Logo from '../assets/images/logo.jpeg';
-import Panier from '../assets/images/panier.png';
+import Logo from "../assets/images/logo.jpeg";
+import Panier from "../assets/images/panier.png";
 
 const Navbar = () => {
-  return(
-    <div className='nav'>
-    <img src={Logo} alt="Logo" className="logo"/>
+  return (
+    <div className="nav">
+      <img src={Logo} alt="Logo" className="logo" />
       <nav className="navbar_item" className="menu">
         <Link exact to="/Boutique" className="item">
           Boutique

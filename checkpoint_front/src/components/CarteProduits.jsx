@@ -1,21 +1,27 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-
-const CarteProduit = ({ produit }) => {
-  return(
+import { Link } from "react-router-dom";
+/** Import de CSS */
+import "./CarteProduits.css";
+const CarteProduits = ({ produit }) => {
+  return (
     <div>
-    <div>
-      <img src= {produit.image} alt={produit.name} />
-      <h2>{produit.name}</h2> <p>{produit.prix} €</p>
+      <div>
+        <div className="card">
+          <img src={produit.image} alt={produit.name} className="card-img" />
+          <div className="card-body">
+            <p className="card-produit">{produit.name}</p>
+            <p className="card-produit">{produit.prix} €</p>
+          </div>
+          <div className="bloc-btn">
+            <Link to={`/`}>
+              <button type="button" className="btn">
+                Voir le produit
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-    <Link to={'/'}>
-      <button type="button">
-        Voir plus
-      </button>
-    </Link>
-    </div>
-    </div>
-  )
-}
-export default CarteProduit;
+  );
+};
+export default CarteProduits;
