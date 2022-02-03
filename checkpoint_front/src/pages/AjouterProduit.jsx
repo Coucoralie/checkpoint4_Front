@@ -5,7 +5,7 @@ import Form from "../components/Form";
 const AjouterProduit = () => {
   return (
     <div>
-      <Form />
+      <Form create/>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import axios from "axios";
 /** Import de CSS */
 import "./Form.css";
 
-const Form = ({ myProduct = {} }) => {
+const Form = ({ myProduct = {},buttonAction, create=false }) => {
   const [categories, setCategories] = useState([]);
   const [categorieSelected, setCategorieSelected] = useState("");
   const [product, setProduct] = useState(myProduct);
@@ -13,6 +13,7 @@ const Form = ({ myProduct = {} }) => {
   const [descriptionProduct, setDescriptionProduct] = useState("");
   const [imgProduct, setImgProduct] = useState("");
   const [prixProduct, setPrixProduct] = useState();
+  const [message, setMessage] =useState(false);
 
   /**
    * Fetch des données Categories
@@ -27,7 +28,16 @@ const Form = ({ myProduct = {} }) => {
   useEffect(() => {
     getCategories();
   }, []);
-
+/**
+   * Mise à jour du film en BDD
+   * create = false (Possible si modal depuis single)
+   */
+ const updateMovieInBDD = () => {
+  axios
+    .put(`http://localhost:5000/produits/${product.id}`, product)
+    .then((response) => console.log(response))
+    .catch((err) => console.error(err));
+};
   /**
    * Création d'un produit en BDD
    *
@@ -47,7 +57,7 @@ const Form = ({ myProduct = {} }) => {
         setProduct(response);
       })
       .catch((error) => {
-        console.log(error);
+        setMessage(true);
       });
   };
   const handleSubmit = (event) => {
@@ -57,9 +67,11 @@ const Form = ({ myProduct = {} }) => {
     <div className="container-form">
       <div className="title">
         <h2 className="title-form">Ajouter un nouveau produit</h2>
+        {message && 
         <p className="text-form">
           L ensemble des champs doivent être renseigné
         </p>
+        }
       </div>
       <div className="form">
         <form onSubmit={handleSubmit} className="form">
@@ -144,13 +156,31 @@ const Form = ({ myProduct = {} }) => {
               </select>
             </label>
           </div>
+          {/** Si create, bouton de création, sinon update */}
           <div className="input">
+          {create ? (
             <button
               type="submit"
               onClick={() => createProductInBDD()}
               className="btn-ajouter"
             >
               <h3 className="tite-input">Ajouter</h3>
+            </button>
+            ): (
+              <button
+              type="submit"
+              onClick={() => updateMovieInBDD()}
+              className="btn-ajouter"
+            >
+              <h3 className="tite-input">Modifier</h3>
+            </button>
+            )}
+            <button
+              type="submit"
+              onClick={() => buttonAction()}
+              className="btn-ajouter"
+            >
+              <h3 className="tite-input">Annuler</h3>
             </button>
           </div>
         </form>
