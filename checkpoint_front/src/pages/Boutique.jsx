@@ -10,58 +10,54 @@ const Boutique = () => {
   const [produits, setProduits] = useState([]);
   const [categorieFiltered, setCategorieFiltered] = useState("");
 
-   /**
-   * Fetch des données
+  /**
+   * Fetch des données Categories
    */
-    const getCategories = () => {
-      fetchAllCategories()
-        .then((data) => {
-          setCategories(data);
-          console.log(data);
-        })
-        .catch((err) => console.error(err));
-    };
-    useEffect(() => {
-      getCategories();
-    }, []);
-    console.log(categories);
-    const getProduits = () => {
-      fetchAllProduits()
-        .then((data) => {
-          setProduits(data);
-          console.log(data);
-        })
-        .catch((err) => console.error(err));
-    };
-    useEffect(() => {
-      getProduits();
-    }, []);
-    console.log(categories);
-  return(
+  const getCategories = () => {
+    fetchAllCategories()
+      .then((data) => {
+        setCategories(data);
+      })
+      .catch((err) => console.error(err));
+  };
+  /**
+   * Fetch des données Produits
+   */
+  const getProduits = () => {
+    fetchAllProduits()
+      .then((data) => {
+        setProduits(data);
+      })
+      .catch((err) => console.error(err));
+  };
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  useEffect(() => {
+    getProduits();
+  }, []);
+  return (
     <div className="boutique">
       <h3 className="title-boutique">Boutique</h3>
       <div className="input-boutique">
-      <label htmlFor="search" className="search">
-        Rechercher par catégorie
-        <input type ="text" value={categorieFiltered} onChange={(e) => setCategorieFiltered(e.target.value)} className="input"/>
-      </label>
+        <label htmlFor="search" className="search">
+          Rechercher par catégorie
+          <input
+            type="text"
+            value={categorieFiltered}
+            onChange={(e) => setCategorieFiltered(e.target.value)}
+            className="input"
+          />
+        </label>
       </div>
       <div className="card-container">
-      {/* {categories.filter((value) => {
-        if(categorieFiltered === ''){
-          return value;
-        }else if( value.name.toLowerCase().includes(categorieFiltered.toLowerCase())){
-          return value;
-        }
-        console.log(value);
-      })} */}
-      {produits.map((produit) => (
-        <CarteProduits produit={produit} />
-      ))}
+        {produits.map((produit) => (
+          <CarteProduits produit={produit} />
+        ))}
       </div>
     </div>
-  )
+  );
 };
 
 export default Boutique;
- 

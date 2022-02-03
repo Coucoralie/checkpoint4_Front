@@ -1,20 +1,20 @@
-.title-boutique{
+.title-boutique {
   font-size: 40px;
   font-weight: normal;
   color: #8b56b2;
 }
-.search{
+.search {
   width: 100%;
   text-align: center;
   padding-right: 5px;
   color: #8b56b2;
   font-size: 20px;
 }
-.input{
+.input {
   text-align: center;
   font-size: 20px;
 }
-.input-boutique{
+.input-boutique {
   width: 100%;
   text-align: center;
 }
@@ -24,4 +24,3 @@
   justify-content: center;
   margin: 5%;
 }
-
