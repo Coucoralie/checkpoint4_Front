@@ -101,7 +101,36 @@
   flex-direction: column;
   justify-content: space-around;
 }
-
+.boutons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.btn-modifier{
+  background-color: #8b56b2;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 25px;
+  text-align: center;
+  width: 40%;
+}
+.btn-supprimer{
+  background-color: #8b56b2;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 25px;
+  text-align: center;
+  width: 40%;
+  
+}
+.btn-modifier:hover {
+  background-color: white;
+  color: #8b56b2;
+}
+.btn-supprimer:hover {
+  background-color: white;
+  color: #8b56b2;
+}
 @media screen and (min-width: 300px) {
   .uva-card__media {
     display: flex;

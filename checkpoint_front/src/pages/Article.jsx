@@ -27,7 +27,7 @@ const Article = () => {
       <div className="container">
         <div className="uva-card uva-card--horizontal">
           <div className="uva-card__media">
-            <img src={myProduit.image} alt={myProduit.name} className="image"/>
+            <img src={myProduit.image} alt={myProduit.name} className="image" />
           </div>
           <div className="uva-card__content">
             <div className="card-body">
@@ -36,10 +36,21 @@ const Article = () => {
               <p className="price">Prix : {myProduit.prix} €</p>
               <p className="des">Description : </p>
               <p className="description">{myProduit.description}</p>
-              <button type="submit" className="btn-add">Ajouter</button>
+              <button type="submit" className="btn-add">
+                Ajouter
+              </button>
+              <div className="boutons">
+          <button type="submit" className="btn-modifier">
+            Modifier
+          </button>
+          <button type="submit" className="btn-supprimer">
+            Supprimer
+          </button>
+        </div>
             </div>
           </div>
         </div>
+        
       </div>
     </>
   );
