@@ -35,7 +35,11 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
  const updateMovieInBDD = () => {
   axios
     .put(`http://localhost:5000/produits/${product.id}`, product)
-    .then((response) => buttonAction(product))
+    .then((response) =>{
+      setProduct(response);
+      console.log(product)
+      buttonAction(product);
+    })
     .catch((err) => console.error(err));
 };
   /**
@@ -55,7 +59,7 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
       .post(`http://localhost:5000/produits`, product)
       .then((response) => {
         setProduct(response);
-        buttonAction();
+        buttonAction(product);
       })
       .catch((error) => {
         setMessage(true);
@@ -138,6 +142,7 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
               />
             </label>
           </div>
+          { create ? (
           <div className="input">
             <label htmlFor="prix">
               <h3 className="tite-input">Catégorie</h3>
@@ -157,6 +162,8 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
               </select>
             </label>
           </div>
+          ) : ( ""
+                )}
           {/** Si create, bouton de création, sinon update */}
           <div className="input">
           {create ? (

@@ -10,6 +10,7 @@ import Message from "../components/Message";
 
 Modal.setAppElement("#root");
 const Article = () => {
+  const [envoiForm, setEnvoiForm] = useState(false);
   const [myProduit, setMyProduit] = useState({});
   const { id } = useParams();
   const [confirmation, setConfirmation] = useState(false);
@@ -73,9 +74,19 @@ const Article = () => {
               <p className="price">Prix : {myProduit.prix} €</p>
               <p className="des">Description : </p>
               <p className="description">{myProduit.description}</p>
-              <button type="submit" className="btn-add">
+              <button type="submit" className="btn-add" onClick={() => setEnvoiForm(!envoiForm)}>
                 Ajouter
               </button>
+              <div className={envoiForm ? 'alert_open' : 'alert_close'}>
+              <button
+                className="btn-close"
+                type="button"
+                onClick={() => setEnvoiForm(!envoiForm)}
+              >
+                X
+              </button>
+              <h3 className="title-popup">Le produit a bien été ajouté</h3>
+            </div>
               <div className="boutons">
                 <button type="submit" className="btn-modifier" onClick={() => setModification(true)}>
                   Modifier

@@ -144,3 +144,34 @@ form {
   cursor: pointer;
   padding-bottom: 5px;
 }
+.alert_open{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:   white;
+  z-index: 30;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 123, 255, 0.25);
+  color:  #287777;
+  font-weight: 500;
+  margin:20px;
+}
+
+.alert_close{
+  display:none;
+}
+.btn-close{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 24px;
+  border :none;
+  color: black;
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+.title-popup{
+  color: #8b56b2;
+}
