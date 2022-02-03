@@ -9,7 +9,9 @@ import Panier from "../assets/images/panier.png";
 const Navbar = () => {
   return (
     <div className="nav">
-      <img src={Logo} alt="Logo" className="logo" />
+    <Link exact to="/" >
+      <img src={Logo} alt="Logo" className="logo"/>
+    </Link>
       <nav className="navbar_item" className="menu">
         <Link exact to="/Boutique" className="item">
           Boutique

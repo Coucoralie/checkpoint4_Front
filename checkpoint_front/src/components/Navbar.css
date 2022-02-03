@@ -20,9 +20,9 @@
   font-size: 25px;
 }
 .logo {
-  width: 10%;
   display: flex;
   justify-content: flex-end;
+  width: 30%;
 }
 .panier {
   width: 5%;
