@@ -7,7 +7,6 @@ import "./Article.css";
 const Article = () => {
   const [myProduit, setMyProduit] = useState({});
   const { id } = useParams();
-  // const navigate = useNavigate();
   /**
    * Fetch des données
    */
@@ -20,7 +19,6 @@ const Article = () => {
       })
       .catch((err) => console.error(err));
   }, []);
-  console.log(myProduit);
   return (
     <>
       <h3 className="title-article">Article</h3>
@@ -40,17 +38,16 @@ const Article = () => {
                 Ajouter
               </button>
               <div className="boutons">
-          <button type="submit" className="btn-modifier">
-            Modifier
-          </button>
-          <button type="submit" className="btn-supprimer">
-            Supprimer
-          </button>
-        </div>
+                <button type="submit" className="btn-modifier">
+                  Modifier
+                </button>
+                <button type="submit" className="btn-supprimer">
+                  Supprimer
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        
       </div>
     </>
   );
