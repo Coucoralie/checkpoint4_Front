@@ -1,0 +1,147 @@
+.title-article {
+  font-size: 40px;
+  font-weight: normal;
+  color: #8b56b2;
+}
+.name {
+  font-size: 26px;
+  margin: 30px 0 30px 30px;
+  font-weight: normal;
+  text-align: center;
+  color: #8b56b2;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 30px 0 30px 30px;
+}
+.des {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0px 0 0px 30px;
+}
+.description {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0px 0 0px 30px;
+}
+.btn-add {
+  background-color: #8b56b2;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 25px;
+  text-align: center;
+}
+.btn-add:hover {
+  background-color: white;
+  color: #8b56b2;
+}
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.uva-card {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+}
+
+.uva-card__content {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+  border-radius: 0 0 2px 2px;
+}
+
+.uva-card__title {
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.53);
+  padding: 15px 0px 15px 20px;
+}
+
+.card-body {
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 0px 20px 0px 20px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.boutons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.btn-modifier {
+  background-color: #8b56b2;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 25px;
+  text-align: center;
+  width: 40%;
+}
+.btn-supprimer {
+  background-color: #8b56b2;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 25px;
+  text-align: center;
+  width: 40%;
+}
+.btn-modifier:hover {
+  background-color: white;
+  color: #8b56b2;
+}
+.btn-supprimer:hover {
+  background-color: white;
+  color: #8b56b2;
+}
+@media screen and (max-width: 800px) {
+  .uva-card__media {
+    display: flex;
+    flex-direction: column;
+  }
+  .uva-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .boutons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5px;
+  }
+  .btn-supprimer,
+  .btn-add,
+  .btn-modifier {
+    font-size: 18px;
+  }
+  .price,
+  .des,
+  .description {
+    font-size: 18px;
+    font-weight: normal;
+  }
+  .des{
+    padding: 10px;
+  }
+}
