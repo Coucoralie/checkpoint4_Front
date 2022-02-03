@@ -62,7 +62,6 @@ const Boutique = () => {
                 </option>
               );
             })}
-            {console.log(categorieFiltered)}
           </select>
         </label>
       </div>
