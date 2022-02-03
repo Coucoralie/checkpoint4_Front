@@ -8,6 +8,7 @@ import CarteProduits from "../components/CarteProduits";
 const Boutique = () => {
   const [categories, setCategories] = useState([]);
   const [produits, setProduits] = useState([]);
+  const [produitsShown, setProduitsShown] = useState([]);
   const [categorieFiltered, setCategorieFiltered] = useState("");
 
   /**
@@ -27,32 +28,46 @@ const Boutique = () => {
     fetchAllProduits()
       .then((data) => {
         setProduits(data);
+        setProduitsShown(data);
       })
       .catch((err) => console.error(err));
   };
   useEffect(() => {
     getCategories();
+    getProduits();
   }, []);
 
   useEffect(() => {
-    getProduits();
-  }, []);
+    const provProduct = produits.filter(
+      (product) => product.id_categories === parseInt(categorieFiltered, 10)
+    );
+    setProduitsShown(provProduct);
+  }, [categorieFiltered]);
   return (
     <div className="boutique">
       <h3 className="title-boutique">Boutique</h3>
       <div className="input-boutique">
         <label htmlFor="search" className="search">
           Rechercher par catégorie
-          <input
-            type="text"
+          <select
+            name="search"
             value={categorieFiltered}
             onChange={(e) => setCategorieFiltered(e.target.value)}
             className="input"
-          />
+          >
+            {categories.map((categorie) => {
+              return (
+                <option value={categorie.id} key={categorie.id}>
+                  {categorie.name}
+                </option>
+              );
+            })}
+            {console.log(categorieFiltered)}
+          </select>
         </label>
       </div>
       <div className="card-container">
-        {produits.map((produit) => (
+        {produitsShown.map((produit) => (
           <CarteProduits produit={produit} />
         ))}
       </div>
