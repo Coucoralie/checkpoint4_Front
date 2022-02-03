@@ -35,7 +35,7 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
  const updateMovieInBDD = () => {
   axios
     .put(`http://localhost:5000/produits/${product.id}`, product)
-    .then((response) => console.log(response))
+    .then((response) => buttonAction(product))
     .catch((err) => console.error(err));
 };
   /**
@@ -55,6 +55,7 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
       .post(`http://localhost:5000/produits`, product)
       .then((response) => {
         setProduct(response);
+        buttonAction();
       })
       .catch((error) => {
         setMessage(true);

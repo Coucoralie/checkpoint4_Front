@@ -6,6 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./Article.css";
 /** Import de composant */
 import Form from "../components/Form";
+import Message from "../components/Message";
 
 Modal.setAppElement("#root");
 const Article = () => {
@@ -27,12 +28,37 @@ const Article = () => {
       })
       .catch((err) => console.error(err));
   }, [id]);
+  const deleteOneMovie = () => {
+    axios.delete(`http://localhost:5000/produits/${id}`).then(() => {
+      setTimeout(() => navigate('/'), 3000);
+    });
+  };
+  const onDeleteConfirmation = (validation) => {
+    if (validation) {
+      deleteOneMovie(true);
+      setRedirection(true);
+    } else {
+      setConfirmation(false);
+    }
+  };
+  const onCancelModification = (produit) => {
+    if (produit) setMyProduit(produit);
+    setModification(false);
+  };
   return (
     <>
-      <Modal isOpen={confirmation}></Modal>
-      <Modal isOpen={redirection}></Modal>
+      <Modal isOpen={confirmation}>
+        <Message
+        title="Suppression du produit"
+        description={`Confirmez-vous la suppression du produit ${myProduit.name}`}
+        buttonAction={onDeleteConfirmation} />
+      </Modal>
+      <Modal isOpen={redirection}>
+        <Message title="Suppression du produit"
+        description={`Suppression du produit ${myProduit.name} en cours, vous allez être redirigé`} />
+      </Modal>
       <Modal isOpen={modification}>
-        <Form myProduit={myProduit} />
+        <Form myProduit={myProduit} buttonAction={onCancelModification} />
       </Modal>
       <h3 className="title-article">Article</h3>
       <div className="container">
@@ -51,10 +77,10 @@ const Article = () => {
                 Ajouter
               </button>
               <div className="boutons">
-                <button type="submit" className="btn-modifier">
+                <button type="submit" className="btn-modifier" onClick={() => setModification(true)}>
                   Modifier
                 </button>
-                <button type="submit" className="btn-supprimer">
+                <button type="submit" className="btn-supprimer"  onClick={() => setConfirmation(true)}>
                   Supprimer
                 </button>
               </div>
