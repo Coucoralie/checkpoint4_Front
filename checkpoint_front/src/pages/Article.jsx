@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
+import Modal from "react-modal";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 /** Import de CSS */
 import "./Article.css";
+/** Import de composant */
+import Form from "../components/Form";
 
+Modal.setAppElement("#root");
 const Article = () => {
   const [myProduit, setMyProduit] = useState({});
   const { id } = useParams();
+  const [confirmation, setConfirmation] = useState(false);
+  const [modification, setModification] = useState(false);
+  const [redirection, setRedirection] = useState(false);
+  const navigate = useNavigate();
   /**
    * Fetch des données
    */
@@ -21,6 +29,11 @@ const Article = () => {
   }, [id]);
   return (
     <>
+      <Modal isOpen={confirmation}></Modal>
+      <Modal isOpen={redirection}></Modal>
+      <Modal isOpen={modification}>
+        <Form myProduit={myProduit} />
+      </Modal>
       <h3 className="title-article">Article</h3>
       <div className="container">
         <div className="uva-card uva-card--horizontal">

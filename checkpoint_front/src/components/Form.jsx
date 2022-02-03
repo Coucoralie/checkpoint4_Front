@@ -4,10 +4,10 @@ import axios from "axios";
 /** Import de CSS */
 import "./Form.css";
 
-const Form = ({ myProduct = {},buttonAction, create=false }) => {
+const Form = ({ myProduit = {},buttonAction, create=false }) => {
   const [categories, setCategories] = useState([]);
   const [categorieSelected, setCategorieSelected] = useState("");
-  const [product, setProduct] = useState(myProduct);
+  const [product, setProduct] = useState(myProduit);
   const [titleProduct, setTitleProduct] = useState("");
   const [quantiteProduct, setQuantiteProduct] = useState();
   const [descriptionProduct, setDescriptionProduct] = useState("");
