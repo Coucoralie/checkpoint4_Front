@@ -13,7 +13,7 @@ const CarteProduits = ({ produit }) => {
             <p className="card-produit">{produit.prix} €</p>
           </div>
           <div className="bloc-btn">
-            <Link to={`/`}>
+            <Link to={`/ajouterProduit/${produit.id}`}>
               <button type="button" className="btn">
                 Voir le produit
               </button>
