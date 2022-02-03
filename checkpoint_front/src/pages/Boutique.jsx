@@ -48,21 +48,21 @@ const Boutique = () => {
       <h3 className="title-boutique">Boutique</h3>
       <div className="input-boutique">
         <label htmlFor="search" className="search">
-          Rechercher par catégorie
           <select
             name="search"
             value={categorieFiltered}
             onChange={(e) => setCategorieFiltered(e.target.value)}
             className="input"
           >
+            <option>Rechercher par catégorie</option>
             {categories.map((categorie) => {
+              <option>Rechercher par catégorie</option>;
               return (
                 <option value={categorie.id} key={categorie.id}>
                   {categorie.name}
                 </option>
               );
             })}
-            {console.log(categorieFiltered)}
           </select>
         </label>
       </div>
