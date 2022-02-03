@@ -8,6 +8,8 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 /** Import des pages */
 import Home from "./pages/Home";
+import Boutique from "./pages/Boutique";
+import Article from "./pages/Article";
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
       <Hero />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/boutique" element={<Boutique />} />
+        <Route path="/article/:id" element={<Article/>} />
       </Routes>
       <Footer />
     </BrowserRouter>
