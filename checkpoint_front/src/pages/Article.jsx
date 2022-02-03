@@ -18,7 +18,7 @@ const Article = () => {
         setMyProduit(data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [id]);
   return (
     <>
       <h3 className="title-article">Article</h3>
