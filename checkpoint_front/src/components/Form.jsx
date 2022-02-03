@@ -4,7 +4,7 @@ import axios from "axios";
 /** Import de CSS */
 import "./Form.css";
 
-const Form = ({ myProduit = {},buttonAction, create=false }) => {
+const Form = ({ myProduit = {}, buttonAction, create = false }) => {
   const [categories, setCategories] = useState([]);
   const [categorieSelected, setCategorieSelected] = useState("");
   const [product, setProduct] = useState(myProduit);
@@ -13,7 +13,7 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
   const [descriptionProduct, setDescriptionProduct] = useState("");
   const [imgProduct, setImgProduct] = useState("");
   const [prixProduct, setPrixProduct] = useState();
-  const [message, setMessage] =useState(false);
+  const [message, setMessage] = useState(false);
 
   /**
    * Fetch des données Categories
@@ -28,20 +28,19 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
   useEffect(() => {
     getCategories();
   }, []);
-/**
+  /**
    * Mise à jour du film en BDD
    * create = false (Possible si modal depuis single)
    */
- const updateMovieInBDD = () => {
-  axios
-    .put(`http://localhost:5000/produits/${product.id}`, product)
-    .then((response) =>{
-      setProduct(response);
-      console.log(product)
-      buttonAction(product);
-    })
-    .catch((err) => console.error(err));
-};
+  const updateMovieInBDD = () => {
+    axios
+      .put(`http://localhost:5000/produits/${product.id}`, product)
+      .then((response) => {
+        setProduct(response);
+        buttonAction(product);
+      })
+      .catch((err) => console.error(err));
+  };
   /**
    * Création d'un produit en BDD
    *
@@ -72,11 +71,11 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
     <div className="container-form">
       <div className="title">
         <h2 className="title-form">Ajouter un nouveau produit</h2>
-        {message && 
-        <p className="text-form">
-          L ensemble des champs doivent être renseigné
-        </p>
-        }
+        {message && (
+          <p className="text-form">
+            L ensemble des champs doivent être renseigné
+          </p>
+        )}
       </div>
       <div className="form">
         <form onSubmit={handleSubmit} className="form">
@@ -142,46 +141,47 @@ const Form = ({ myProduit = {},buttonAction, create=false }) => {
               />
             </label>
           </div>
-          { create ? (
-          <div className="input">
-            <label htmlFor="prix">
-              <h3 className="tite-input">Catégorie</h3>
-              <select
-                name="search"
-                onChange={(e) => setCategorieSelected(e.target.value)}
-                className="form-control"
-              >
-                <option>Sélectionner la categorie du Produit</option>
-                {categories.map((categorie) => {
-                  return (
-                    <option value={categorie.id} key={categorie.id}>
-                      {categorie.name}
-                    </option>
-                  );
-                })}
-              </select>
-            </label>
-          </div>
-          ) : ( ""
-                )}
+          {create ? (
+            <div className="input">
+              <label htmlFor="prix">
+                <h3 className="tite-input">Catégorie</h3>
+                <select
+                  name="search"
+                  onChange={(e) => setCategorieSelected(e.target.value)}
+                  className="form-control"
+                >
+                  <option>Sélectionner la categorie du Produit</option>
+                  {categories.map((categorie) => {
+                    return (
+                      <option value={categorie.id} key={categorie.id}>
+                        {categorie.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </label>
+            </div>
+          ) : (
+            ""
+          )}
           {/** Si create, bouton de création, sinon update */}
           <div className="input">
-          {create ? (
-            <button
-              type="submit"
-              onClick={() => createProductInBDD()}
-              className="btn-ajouter"
-            >
-              <h3 className="tite-input">Ajouter</h3>
-            </button>
-            ): (
+            {create ? (
               <button
-              type="submit"
-              onClick={() => updateMovieInBDD()}
-              className="btn-ajouter"
-            >
-              <h3 className="tite-input">Modifier</h3>
-            </button>
+                type="submit"
+                onClick={() => createProductInBDD()}
+                className="btn-ajouter"
+              >
+                <h3 className="tite-input">Ajouter</h3>
+              </button>
+            ) : (
+              <button
+                type="submit"
+                onClick={() => updateMovieInBDD()}
+                className="btn-ajouter"
+              >
+                <h3 className="tite-input">Modifier</h3>
+              </button>
             )}
             <button
               type="submit"

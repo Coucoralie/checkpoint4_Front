@@ -50,13 +50,13 @@ const Article = () => {
     <>
       <Modal isOpen={confirmation}>
         <Message
-        title="Suppression du produit"
-        description={`Confirmez-vous la suppression du produit ${myProduit.name}`}
-        buttonAction={onDeleteConfirmation} />
+          title="Suppression du produit"
+          description={`Confirmez-vous la suppression du produit ${myProduit.name}`}
+          buttonAction={onDeleteConfirmation} />
       </Modal>
       <Modal isOpen={redirection}>
         <Message title="Suppression du produit"
-        description={`Suppression du produit ${myProduit.name} en cours, vous allez être redirigé`} />
+          description={`Suppression du produit ${myProduit.name} en cours, vous allez être redirigé`} />
       </Modal>
       <Modal isOpen={modification}>
         <Form myProduit={myProduit} buttonAction={onCancelModification} />
@@ -78,20 +78,20 @@ const Article = () => {
                 Ajouter
               </button>
               <div className={envoiForm ? 'alert_open' : 'alert_close'}>
-              <button
-                className="btn-close"
-                type="button"
-                onClick={() => setEnvoiForm(!envoiForm)}
-              >
-                X
-              </button>
-              <h3 className="title-popup">Le produit a bien été ajouté</h3>
-            </div>
+                <button
+                  className="btn-close"
+                  type="button"
+                  onClick={() => setEnvoiForm(!envoiForm)}
+                >
+                  X
+                </button>
+                <h3 className="title-popup">Le produit a bien été ajouté</h3>
+              </div>
               <div className="boutons">
                 <button type="submit" className="btn-modifier" onClick={() => setModification(true)}>
                   Modifier
                 </button>
-                <button type="submit" className="btn-supprimer"  onClick={() => setConfirmation(true)}>
+                <button type="submit" className="btn-supprimer" onClick={() => setConfirmation(true)}>
                   Supprimer
                 </button>
               </div>
